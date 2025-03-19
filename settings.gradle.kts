@@ -12,7 +12,7 @@ dependencyResolutionManagement {
         gradlePluginPortal()
         mavenCentral()
         maven("https://api.xposed.info/")
-        maven { url "https://maven.aliyun.com/repository/public" }
+        maven("https://maven.aliyun.com/repository/public/")
     }
 }
 
