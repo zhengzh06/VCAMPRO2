@@ -12,7 +12,6 @@ dependencyResolutionManagement {
         gradlePluginPortal()
         mavenCentral()
         maven("https://api.xposed.info/")
-        maven ("https://maven.pkg.github.com/GCX-HCI/tray" )
         maven { url "https://maven.aliyun.com/repository/public" }
     }
 }
