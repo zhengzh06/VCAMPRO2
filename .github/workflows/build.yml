@@ -20,11 +20,6 @@ jobs:
           sdk-version: 34
           build-tools-version: 34.0.0
           ndk-version: 25.2.9519653
-      - name: Install Xposed 82 via Androidacy
-        run: |
-          wget -O xposed82.apk https://archive.androidacy.com/xposed/installer/de.robv.android.xposed.installer_v82_36570c.apk
-          adb install -t xposed82.apk
-          timeout-minutes: 5
       - name: Install LSPosed latest
         run: |
           LATEST_LSP_URL=$(curl -s https://api.github.com/repos/LSPosed/LSPosed/releases/latest | grep "browser_download_url.*zip" | cut -d '"' -f 4)
