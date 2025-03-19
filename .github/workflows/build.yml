@@ -23,8 +23,20 @@ jobs:
       - name: Install LSPosed latest
         run: |
           LATEST_LSP_URL=$(curl -s https://api.github.com/repos/LSPosed/LSPosed/releases/latest | grep "browser_download_url.*zip" | cut -d '"' -f 4)
+          echo "Downloading LSPosed from $LATEST_LSP_URL"
           wget $LATEST_LSP_URL -O lsposed.zip
+          
+          if [ $? -ne 0 ]; then
+            echo "Failed to download LSPosed"
+            exit 1
+          fi
+          
           unzip lsposed.zip -d $ANDROID_HOME/lsposed
+          
+          if [ $? -ne 0 ]; then
+            echo "Failed to unzip LSPosed"
+            exit 1
+          fi
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
       - name: Build with Gradle
