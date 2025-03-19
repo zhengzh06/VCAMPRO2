@@ -43,10 +43,3 @@ jobs:
         run: ./gradlew assembleDebug -Psdk_version=34
         env:
           ANDROID_HOME: ${{ env.ANDROID_HOME }}
-      - name: Cache Android SDK
-        uses: actions/cache@v3
-        with:
-          path: |
-            ~/.android/cache
-            $ANDROID_HOME
-          key: android-sdk-34-${{ runner.os }}
