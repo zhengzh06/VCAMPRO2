@@ -31,3 +31,8 @@ jobs:
         run: ./gradlew assembleDebug -Psdk_version=34
         env:
           ANDROID_HOME: ${{ env.ANDROID_HOME }}
+      - name: Upload APK
+        uses: actions/upload-artifact@v3
+        with:
+          name: my-build-apk
+          path: ./**/*.apk
