@@ -269,7 +269,8 @@ class MainHook : IXposedHookLoadPackage {
                                     super.beforeHookedMethod(param)
                                     if (param.args[0] != null) {
                                         sessionConfiguration = param.args[0] as SessionConfiguration
-                                        outputConfiguration = OutputConfiguration(c2_virtual_surface)
+                                        val c2_virtual_surface_1 = c2_virtual_surface ?: throw IllegalArgumentException("Surface cannot be null")
+                                        outputConfiguration = OutputConfiguration(c2_virtual_surface_1)
                                         fake_sessionConfiguration = SessionConfiguration(
                                             sessionConfiguration!!.getSessionType(),
                                             Arrays.asList<OutputConfiguration>(outputConfiguration),
