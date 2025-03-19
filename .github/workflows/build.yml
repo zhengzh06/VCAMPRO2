@@ -31,7 +31,7 @@ jobs:
             exit 1
           fi
           mkdir -p $ANDROID_HOME/lsposed
-          unzip lsposed.zip -d $ANDROID_HOME/lsposed
+          unzip -o lsposed.zip -x "*.sha256" -d $ANDROID_HOME/lsposed
           
           if [ $? -ne 0 ]; then
             echo "Failed to unzip LSPosed"
